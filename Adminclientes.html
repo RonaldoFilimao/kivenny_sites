@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados dos Clientes</title>
+    <script src="../JS/jquery.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            border-radius: 8px;
+            padding: 14px;
+            text-align: left;
+            font-size: 1rem;
+            border-bottom: 1px solid cyan;
+        }
+
+        table th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tr:hover {
+            background-color: cyan;
+            cursor: pointer;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .search-bar {
+            width: 30%;
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .search-btn {
+            padding: 12px 24px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+            transition: background-color 0.3s;
+        }
+
+        .search-btn:hover {
+            background-color: #2980b9;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Dados dos Clientes</h1>
+
+        <!-- Campo de pesquisa com botão -->
+        <div class="search-container">
+            <input type="text" id="search" class="search-bar" placeholder="Pesquisar por Nome" />
+            <button class="search-btn" onclick="manualSearch()">Buscar</button>
+        </div>
+
+        <!-- Tabela para exibir resultados -->
+        <table id="clientTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>Endereço</th>
+                    <th>NUIT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Os resultados serão carregados aqui -->
+            </tbody>
+        </table>
+
+        <a href="../PHP/AdminSistema.php" class="btn">Voltar</a>
+    </div>
+
+    <script>
+        // Carregar e pesquisar clientes usando jQuery e AJAX
+        $(document).ready(function () {
+            loadClients('');
+
+            $('#search').on('keyup', function () {
+                var searchTerm = $(this).val();
+                loadClients(searchTerm);
+            });
+        });
+
+        // Pesquisa manual via clique do botão
+        function manualSearch() {
+            var searchTerm = $('#search').val();
+            loadClients(searchTerm);
+        }
+
+        // Função para carregar clientes dinamicamente
+        function loadClients(searchTerm) {
+            $.ajax({
+                url: '../PHP/clientes.php',
+                type: 'GET',
+                data: { search: searchTerm },
+                success: function (response) {
+                    $('#clientTable tbody').html(response);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

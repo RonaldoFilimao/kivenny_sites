@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    text-decoration: none;
+    background-color: #f0dbdb; 
+    font-family: 'Roboto';
+}
+/*Tranta as imagens em movimento*/
+h2 {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 2rem;
+    color: #2C3E50;
+}
+
+/* Estilização para centralizar e ajustar o carrossel mais à direita */
+.carousel {
+    position: relative;
+    max-width: 600px;
+    height: 285px;
+    overflow: hidden;
+    border-radius: 20px;
+    margin: 40px auto; /* Centraliza horizontalmente */
+    transform: translateX(10%); /* Move o carrossel ligeiramente para a direita */
+}
+
+.carousel-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-image.active {
+    opacity: 1;
+}
+/*Fim*-----------------------------------------------------------*/
+.side-menu {
+    position: fixed;
+    background: #f5f5f5; /* Cor de fundo escura para maior contraste */
+    width: 20vw;
+    min-height: 100vh;
+    display: flex;
+    border-radius: 5px;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+}
+.side-menu ul  li a{
+   text-decoration: none;
+}
+.side-menu .brand-name {
+    height: 10vh;
+    display: flex;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    background-color: #f6f5f5; /* Cor mais escura para a área da marca */
+    color: white;
+}
+.side-menu li {
+    font-size: 18px;
+    padding: 12px 30px;
+    color: white;
+    display: flex;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.side-menu li:hover {
+    background: #faadb4; 
+ 
+}
+.container {
+    position: absolute;
+    right: 0;
+    width: 80vw;
+    height: 100vh;
+   
+}
+.container .content {
+    position: relative;
+    min-height: 90vh;
+    background: #fafafa; /* Cor de fundo suave para o conteúdo */
+}
+.container .content .cards {
+    padding: 25px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.container .content .cards .card {
+    width: 300px;
+    height: 120px;
+    background: #fff;
+    margin: 1px 0px;
+    display: flex;
+    color: rgb(17, 123, 123);
+    border-radius: 30px;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 4px 8px rgba(215, 150, 150, 0.1), 0 6px 20px rgba(98, 231, 252, 0.15); /* Sombra suave */
+}
+.container .content .content-2 {
+    min-height: 30vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    border-radius: 20px;
+    flex-wrap: wrap;
+}
+.container .content .content-2 .recent-payments {
+    min-height: 50vh;
+    flex: 5;
+    background: white;
+    margin: 0 25px 25px 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    border-radius: 5px;
+    flex-direction: column;
+}
+.container .content .content-2 .new-clients {
+    flex: 2;
+    background: white;
+    min-height: 0vh;
+    margin: 0 25px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+}
+
+.container .content .content-2 .new-clients table td:nth-child(1) img {
+    height: 40px;
+    border-radius: 5px;
+    width: 40px;
+}
+
+@media screen and (max-width: 1050px) {
+    .side-menu li {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 940px) {
+    .side-menu li span {
+        display: none;
+    }
+
+    .side-menu {
+        align-items: center;
+    }
+
+    .side-menu li img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .side-menu li:hover {
+        background: #f05462;
+        padding: 8px 38px;
+        border: 2px solid white;
+    }
+}
+
+@media screen and (max-width: 536px) {
+    .brand-name h1 {
+        font-size: 16px;
+    }
+
+    .container .content .cards {
+        justify-content: center;
+    }
+
+    .side-menu li img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .container .content .content-2 .recent-payments table th:nth-child(2),
+    .container .content .content-2 .recent-payments table td:nth-child(2) {
+        display: none;
+    }
+}

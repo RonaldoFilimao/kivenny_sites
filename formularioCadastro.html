@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="../CSS/formularioCadastro.css">
+    <script src="../JS/jquery.js"></script>
+    <script src="../JS/formularioCadastro.js"></script>
+</head>
+<body>
+    <div class="box">
+        <form id="formCadastro"  method="POST">
+            <fieldset>
+
+                <legend>Cadastro de Usuário</legend>
+
+                <!-- Campo Nome -->
+                <div class="inputBox">
+                    <input type="text" id="nome" name="nome" class="inputUser" required>
+                    <label class="labelInput" for="nome">Nome</label>
+                </div>
+
+                <!-- Campo Email -->
+                <div class="inputBox">
+                    <input type="email" id="email" name="email" class="inputUser" required>
+                    <label class="labelInput" for="email">Email</label>
+                </div>
+
+                <!-- Campo Senha -->
+                <div class="inputBox">
+                    <input type="password" id="senha" name="senha" class="inputUser" required>
+                    <label class="labelInput" for="senha">Senha</label>
+                </div>
+
+                <!-- Campo Confirmar Senha -->
+                <div class="inputBox">
+                    <input type="password" id="confirmarSenha" name="confirmarSenha" class="inputUser" required>
+                    <label class="labelInput" for="confirmarSenha">Confirmar Senha</label>
+                </div>
+
+                <!-- Campo Telefone -->
+                <div class="inputBox">
+                    <input type="tel" id="telefone" name="telefone" class="inputUser" required>
+                    <label class="labelInput" for="telefone">Telefone</label>
+                </div>
+
+                <!-- Campo Sexo -->
+                <div class="inputBox">
+                    <label for="sexo">Sexo</label>
+                    <select id="sexo" name="sexo" required>
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
+                    </select>
+                </div>
+
+                <!-- Campo Cidade -->
+                <div class="inputBox">
+                    <input type="text" id="cidade" name="cidade" class="inputUser" required>
+                    <label class="labelInput" for="cidade">Cidade</label>
+                </div>
+
+                <!-- Campo País -->
+                <div class="inputBox">
+                    <input type="text" id="pais" name="pais" class="inputUser" required>
+                    <label class="labelInput" for="pais">País</label>
+                </div>
+
+                <!-- Data de Nascimento -->
+                <div class="inputBox">
+                    <input type="date" id="dataNascimento" name="dataNascimento" class="inputUser" required>
+                    <label class="labelInput" for="dataNascimento">Data de Nascimento</label>
+                </div>
+
+                <!--  Tipo de Usuário -->
+               
+                    <div class="inputBox">
+                        
+                        <label for="Nivel">Tipo de Usuário</label>
+                         <select name="Nivel" id="Nivel" required>
+                         <option value="1">Vendedor</option>
+                         <option value="0">Admin</option>
+                         </select>
+                </div>
+
+                <!-- Botão de Enviar -->
+                <button type="submit" id="submit">Cadastrar</button>
+            </fieldset>
+        </form>
+
+        <!-- Mensagem de Erro ou Sucesso -->
+        <div id="message"></div>
+    </div>
+   
+    
+    
+</body>
+</html>

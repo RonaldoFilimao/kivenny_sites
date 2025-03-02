@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fefeff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-display: swap; /* Melhora o carregamento de fontes */
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+    font-size: 2rem;
+    color: #5f5e5e;
+    margin-top: 100px; /* Adiciona mais espaço acima do título */
+    margin-bottom: 5px; /* Mantém o espaço abaixo do título */
+}
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 1rem;
+            text-decoration: none;
+            color: white;
+            background-color: dodgerblue;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: deepskyblue;
+        }
+
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 1rem;
+            text-decoration: none;
+            color: white;
+            background-color: dodgerblue;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        a:hover {
+            background-color: deepskyblue;
+        }
+
+        iframe {
+    width: 100%;
+    height: 500px;  /* Aumente o valor para a altura desejada */
+    border: 1px solid #dc4a4a;
+    margin-top: 10px;
+    border-radius: 15px;
+    align-items: center;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Relatórios</h1>
+        <button class="button" onclick="loadContent('../PHP/RelatorioGeralVendas.php')">Relatório Das Vendas</button>
+        <button class="button" onclick="loadContent('../PHP/relatorioDeProdutosDisponiveis.php')">Relatório de Produtos Disponíveis</button>
+        <button class="button" onclick="loadContent('../PHP/GraficoDasVendas.php')">Gráfico das Vendas</button>
+        <a href="../PHP/adminSistema.php">Voltar</a>
+        <iframe id="contentFrame" src="" title="Conteúdo Dinâmico"></iframe>
+    </div>
+    <script>
+        window.onload = function() {
+            document.body.style.visibility = 'visible'; // Torna o conteúdo visível após o carregamento completo
+        };
+
+        function loadContent(url) {
+            document.getElementById('contentFrame').src = url;
+        }
+    </script>
+</body>
+</html>

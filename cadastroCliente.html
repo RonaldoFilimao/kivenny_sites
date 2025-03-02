@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Clientes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+            background-color: rgb(30, 120, 120);
+        }
+        form {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cadastro de Clientes</h1>
+    <form id="clienteForm">
+        <div class="form-group">
+            <label for="nome">Nome Completo *</label>
+            <input type="text" id="nome" name="nome" required>
+        </div>
+        <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="Ex: +258 84 123 4567">
+        </div>
+        <div class="form-group">
+            <label for="endereco">Endereço</label>
+            <textarea id="endereco" name="endereco" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="nuit">NUIT *</label>
+            <input type="text" id="nuit" name="nuit" required>
+        </div>
+        <div class="form-group">
+            <button type="submit">Cadastrar Cliente</button>
+        </div>
+    </form>
+
+    <script>
+        document.getElementById('clienteForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita o envio do formulário padrão
+
+            // Captura os dados do formulário
+            const nome = document.getElementById('nome').value.trim();
+            const telefone = document.getElementById('telefone').value.trim();
+            const endereco = document.getElementById('endereco').value.trim();
+            const nuit = document.getElementById('nuit').value.trim();
+
+            // Validação básica
+            if (!nome) {
+                alert('O campo Nome é obrigatório.');
+                return;
+            }
+            if (!nuit) {
+                alert('O campo NUIT é obrigatório.');
+                return;
+            }
+
+            // Exibe os dados capturados no console
+            console.log('Dados do Cliente:');
+            console.log('Nome:', nome);
+            console.log('Telefone:', telefone);
+            console.log('Endereço:', endereco);
+            console.log('NUIT:', nuit);
+
+            alert('Cliente cadastrado com sucesso!');
+            // Aqui você pode enviar os dados para o servidor usando fetch ou AJAX
+        });
+    </script>
+</body>
+</html>
